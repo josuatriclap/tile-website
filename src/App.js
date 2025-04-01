@@ -7,6 +7,11 @@ const TileContainer = styled.div`
   display: flex;
   height: 100vh;
   width: 100vw;
+  flex-direction: row;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const Tile = styled(Link)`
@@ -15,23 +20,57 @@ const Tile = styled(Link)`
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 3.5rem;
+  font-weight: 800;
   color: white;
-  transition: background-color 0.3s;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s;
   
-  &:first-of-type {
-    background-color: #2196f3;
-    &:hover {
-      background-color: #1976d2;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s;
+    z-index: 0;
+  }
+  
+  &:first-of-type::after {
+    background-image: url('/incogny.jpg');
+  }
+  
+  &:last-of-type::after {
+    background-image: url('/quizzter.jpg');
+  }
+  
+  &:hover {
+    transform: scale(1.02);
+    
+    &::after {
+      transform: scale(1.1);
     }
   }
   
-  &:last-of-type {
-    background-color: #4caf50;
-    &:hover {
-      background-color: #388e3c;
-    }
+  span {
+    position: relative;
+    z-index: 2;
   }
 `;
 
@@ -123,10 +162,10 @@ function Home() {
   return (
     <TileContainer>
       <Tile to="https://incogny.com" target="_blank" rel="noopener noreferrer">
-        Incogny
+        <span>Incogny</span>
       </Tile>
       <Tile to="/quizzter">
-        Quizzter
+        <span>Quizzter</span>
       </Tile>
     </TileContainer>
   );
