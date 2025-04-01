@@ -93,9 +93,9 @@ function PrivacyPolicy() {
     <Container>
       <h1>Privacy Policy</h1>
       <PrivacyText>
-        This is a placeholder for the Quizzter privacy policy. In a real application, 
-        this would contain detailed information about how user data is collected, 
-        processed, and protected.
+        At Quizzter, we take your privacy seriously. We collect minimal data necessary
+        to provide our services. We do not sell or share your personal information with
+        third parties. For more details about our data practices, please contact us.
       </PrivacyText>
       <Link to="/quizzter">
         <Button>Back to Quizzter</Button>
