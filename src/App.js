@@ -20,10 +20,6 @@ const Tile = styled(Link)`
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  font-size: 3.5rem;
-  font-weight: 800;
-  color: white;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   position: relative;
   overflow: hidden;
   transition: transform 0.3s;
@@ -68,7 +64,7 @@ const Tile = styled(Link)`
     }
   }
   
-  span {
+  img {
     position: relative;
     z-index: 2;
   }
@@ -162,10 +158,10 @@ function Home() {
   return (
     <TileContainer>
       <Tile to="https://incogny.com" target="_blank" rel="noopener noreferrer">
-        <span>Incogny</span>
+        <img src="/incogny_logo.png" alt="Incogny Logo" style={{ width: '30%', height: 'auto' }} />
       </Tile>
       <Tile to="/quizzter">
-        <span>Quizzter</span>
+        <img src="/quizzter_logo.png" alt="Quizzter Logo" style={{ width: '30%', height: 'auto' }} />
       </Tile>
     </TileContainer>
   );
